@@ -1,6 +1,6 @@
 name: simple_neon
 description: "A simple package for neon widgets."
-version: 0.0.1
+version: 1.0.0
 homepage:
 
 environment:
