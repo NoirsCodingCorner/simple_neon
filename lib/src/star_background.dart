@@ -108,12 +108,12 @@ class PulsingStarsBackground extends StatefulWidget {
   ///
   /// The widget automatically manages the animation and spawning of stars.
   const PulsingStarsBackground({
-    Key? key,
+    super.key,
     this.maxStars = 100,
     this.spawnDuration = const Duration(milliseconds: 500),
     this.updateDuration = const Duration(milliseconds: 50),
     this.spawnShootingStarDuration = const Duration(seconds: 10),
-  }) : super(key: key);
+  });
 
   @override
   _PulsingStarsBackgroundState createState() => _PulsingStarsBackgroundState();

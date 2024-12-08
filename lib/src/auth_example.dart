@@ -43,14 +43,10 @@ class _AuthPageState extends State<AuthPage> {
   Future<void> _handleSubmit() async {
     if (_isLogin) {
       // Handle login logic
-      String email = _email.value.trim();
-      String password = _password.value.trim();
 
       // Add your login logic here
     } else {
       // Handle registration logic
-      String username = _username.value.trim();
-      String email = _email.value.trim();
       String password = _password.value.trim();
       String confirmPassword = _confirmPassword.value.trim();
 

@@ -25,12 +25,12 @@ class NeonTextField extends StatefulWidget {
   /// The text field features a glowing neon border, real-time text synchronization,
   /// and customizable styles. [textValue] is required for bidirectional text binding.
   const NeonTextField({
-    Key? key,
+    super.key,
     this.hintText = "Enter text...",
     this.neonColor = Colors.cyan,
     this.blurRadius = 16.0,
     required this.textValue,
-  }) : super(key: key);
+  });
 
   @override
   State<NeonTextField> createState() => _NeonTextFieldState();

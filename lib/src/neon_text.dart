@@ -37,7 +37,7 @@ class NeonText extends StatefulWidget {
   /// The widget features a glowing text with optional animation and hover effects.
   /// [text] is required. Other parameters are optional and have defaults.
   const NeonText({
-    Key? key,
+    super.key,
     required this.text,
     this.fontSize = 15.0,
     this.textStyle,
@@ -47,7 +47,7 @@ class NeonText extends StatefulWidget {
     this.fontWeight = FontWeight.bold,
     this.textAlign = TextAlign.center,
     this.animate = false,
-  }) : super(key: key);
+  });
 
   @override
   _NeonTextState createState() => _NeonTextState();

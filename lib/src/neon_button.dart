@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 /// A customizable neon-styled button with glowing effects.
 ///
@@ -37,7 +36,7 @@ class NeonButton extends StatefulWidget {
   ///
   /// [icon] and [onPressed] are required. Other parameters are optional and have defaults.
   const NeonButton({
-    Key? key,
+    super.key,
     required this.icon,
     this.size = 60.0,
     this.neonColor = Colors.cyanAccent,
@@ -46,7 +45,7 @@ class NeonButton extends StatefulWidget {
     this.showShadow = true,
     this.backgroundOpacity = 0.2,
     this.pressedScale = 0.9,
-  }) : super(key: key);
+  });
 
   @override
   _NeonButtonState createState() => _NeonButtonState();
@@ -59,11 +58,6 @@ class _NeonButtonState extends State<NeonButton>
   @override
   void initState() {
     super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
   }
 
   /// Handles the button press down event.

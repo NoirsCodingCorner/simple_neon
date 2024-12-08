@@ -31,7 +31,7 @@ class NeonTextButton extends StatefulWidget {
   /// The button displays glowing text with press animation and customizable styles.
   /// [text] and [onPressed] are required. Other parameters are optional and have defaults.
   const NeonTextButton({
-    Key? key,
+    super.key,
     required this.text,
     this.fontSize = 20.0,
     this.textStyle,
@@ -39,7 +39,7 @@ class NeonTextButton extends StatefulWidget {
     required this.onPressed,
     this.glowRadius = 20.0,
     this.padding = 16.0,
-  }) : super(key: key);
+  });
 
   @override
   _NeonTextButtonState createState() => _NeonTextButtonState();
