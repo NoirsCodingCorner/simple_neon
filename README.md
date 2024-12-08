@@ -2,7 +2,8 @@
 
 A **Flutter package** featuring a collection of neon-styled widgets and a dynamic starry background, designed to create futuristic and visually striking user interfaces.
 
-![Demo Screenshot](insert-demo-screenshot-path-here)
+![Screenshot 2024-12-08 174529](https://github.com/user-attachments/assets/d0b19ccf-d685-4adc-a846-86d50fc87ced)
+
 
 ---
 
@@ -21,7 +22,7 @@ A **Flutter package** featuring a collection of neon-styled widgets and a dynami
 Add the package to your `pubspec.yaml`:
 ```yaml
 dependencies:
-  neon_widgets: ^1.0.0
+  simple_neon: ^1.0.0
 ```
 
 Install it using the Flutter command:
@@ -31,7 +32,7 @@ flutter pub get
 
 Import it into your project:
 ```dart
-import 'package:neon_widgets/neon_widgets.dart';
+import 'package:simple_neon/simple_neon.dart';
 ```
 
 ---
@@ -176,13 +177,15 @@ class AuthPage extends StatelessWidget {
 ## 📸 Screenshots
 
 ### Login Form
-![Login Form](insert-login-screenshot-path-here)
+
+![Screenshot 2024-12-08 174529](https://github.com/user-attachments/assets/88cf0089-5e40-4117-affe-848136e9a570)
 
 ### Registration Form
-![Registration Form](insert-registration-screenshot-path-here)
+
+![Screenshot 2024-12-08 174600](https://github.com/user-attachments/assets/816ed51b-9a05-4995-9de2-befa5a85c5e2)
 
 ### Starry Background
-![Starry Background](insert-starry-background-screenshot-path-here)
+![Recording2024-12-08175046-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/eaaae196-67e5-4dd4-8915-5da14b5dbcae)
 
 ---
 
