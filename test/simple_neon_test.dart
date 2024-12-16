@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:simple_neon/src/auth_example.dart';
+import 'package:simple_neon/example/auth_example.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,35 +1,14 @@
 import 'package:flutter/material.dart';
 
-/// A neon-styled text button with glowing effects and press animation.
-///
-/// The `NeonTextButton` is a glowing, interactive button that features customizable
-/// text, colors, glow effects, and press animations. It is suitable for vibrant and futuristic UI designs.
 class NeonTextButton extends StatefulWidget {
-  /// The text to display inside the button.
   final String text;
-
-  /// The font size of the text. Default is 20.0.
   final double fontSize;
-
-  /// Custom text style to override defaults. Default is null.
   final TextStyle? textStyle;
-
-  /// The color of the neon glow. Default is `Colors.cyanAccent`.
   final Color neonColor;
-
-  /// Callback triggered when the button is pressed.
   final VoidCallback onPressed;
-
-  /// The intensity of the neon glow effect. Default is 20.0.
   final double glowRadius;
-
-  /// Padding around the text inside the button. Default is 16.0.
   final double padding;
 
-  /// Creates a `NeonTextButton` widget.
-  ///
-  /// The button displays glowing text with press animation and customizable styles.
-  /// [text] and [onPressed] are required. Other parameters are optional and have defaults.
   const NeonTextButton({
     super.key,
     required this.text,
@@ -45,24 +24,37 @@ class NeonTextButton extends StatefulWidget {
   _NeonTextButtonState createState() => _NeonTextButtonState();
 }
 
-class _NeonTextButtonState extends State<NeonTextButton> {
+class _NeonTextButtonState extends State<NeonTextButton>
+    with SingleTickerProviderStateMixin {
   bool _isPressed = false;
 
-  /// Handles button press down event.
+  @override
+  void initState() {
+    super.initState();
+    // If you want to add pulsating animation, you can initialize an AnimationController here.
+  }
+
+  @override
+  void dispose() {
+    // Dispose of the AnimationController if you add one.
+    super.dispose();
+  }
+
+  // Handle press down
   void _onTapDown(TapDownDetails details) {
     setState(() {
       _isPressed = true;
     });
   }
 
-  /// Handles button press up event.
+  // Handle press up
   void _onTapUp(TapUpDetails details) {
     setState(() {
       _isPressed = false;
     });
   }
 
-  /// Handles button press cancel event.
+  // Handle press cancel
   void _onTapCancel() {
     setState(() {
       _isPressed = false;
@@ -77,18 +69,17 @@ class _NeonTextButtonState extends State<NeonTextButton> {
       onTapUp: _onTapUp,
       onTapCancel: _onTapCancel,
       child: Transform.scale(
-        // Apply a scaling effect when the button is pressed.
+        // Apply a scale transformation when pressed
         scale: (_isPressed ? 0.95 : 1.0),
         child: Container(
           padding: EdgeInsets.symmetric(
-            horizontal: widget.padding,
-            vertical: widget.padding / 2,
-          ),
+              horizontal: widget.padding, vertical: widget.padding / 2),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.0), // Rounded corners
             color: Colors.black.withOpacity(0.2), // Semi-transparent background
             boxShadow: [
               // Outer Glow
+              // Inner Glow (optional)
               BoxShadow(
                 color: widget.neonColor.withOpacity(0.2),
                 blurRadius: widget.glowRadius / 2,

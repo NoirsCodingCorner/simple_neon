@@ -1,29 +1,11 @@
 import 'package:flutter/material.dart';
 
-/// A neon-styled text field with glowing effects and bidirectional binding support.
-///
-/// The `NeonTextField` widget provides a visually appealing text input field with
-/// neon-style glowing borders and text. It synchronizes text between a `TextEditingController`
-/// and a `ValueNotifier<String>`, enabling real-time updates.
-///
-/// This widget is ideal for modern UIs with futuristic or vibrant designs.
 class NeonTextField extends StatefulWidget {
-  /// Placeholder text displayed when the text field is empty. Default is "Enter text...".
   final String hintText;
-
-  /// The color of the neon glow and border. Default is `Colors.cyan`.
   final Color neonColor;
-
-  /// The intensity of the glow effect. Default is 16.0.
   final double blurRadius;
-
-  /// A `ValueNotifier<String>` to synchronize the text value.
   final ValueNotifier<String> textValue;
 
-  /// Creates a `NeonTextField` widget.
-  ///
-  /// The text field features a glowing neon border, real-time text synchronization,
-  /// and customizable styles. [textValue] is required for bidirectional text binding.
   const NeonTextField({
     super.key,
     this.hintText = "Enter text...",
@@ -45,10 +27,10 @@ class _NeonTextFieldState extends State<NeonTextField> {
   @override
   void initState() {
     super.initState();
-    // Initialize the controller with the current value of the ValueNotifier.
+    // Initialize the controller with the current value of the ValueNotifier
     _controller = TextEditingController(text: widget.textValue.value);
 
-    // Listener to update the ValueNotifier when the controller text changes.
+    // Listener for the controller to update the ValueNotifier
     _controllerListener = () {
       if (!_isUpdating) {
         _isUpdating = true;
@@ -57,12 +39,12 @@ class _NeonTextFieldState extends State<NeonTextField> {
       }
     };
 
-    // Listener to update the controller text when the ValueNotifier changes.
+    // Listener for the ValueNotifier to update the controller
     _valueNotifierListener = () {
       if (!_isUpdating && _controller.text != widget.textValue.value) {
         _isUpdating = true;
         _controller.text = widget.textValue.value;
-        // Move cursor to the end after programmatic update.
+        // Move cursor to the end after programmatic update
         _controller.selection = TextSelection.fromPosition(
           TextPosition(offset: _controller.text.length),
         );
@@ -70,14 +52,14 @@ class _NeonTextFieldState extends State<NeonTextField> {
       }
     };
 
-    // Add listeners to the controller and ValueNotifier.
+    // Add listeners
     _controller.addListener(_controllerListener);
     widget.textValue.addListener(_valueNotifierListener);
   }
 
   @override
   void dispose() {
-    // Remove listeners to prevent memory leaks.
+    // Remove listeners to prevent memory leaks
     _controller.removeListener(_controllerListener);
     widget.textValue.removeListener(_valueNotifierListener);
     _controller.dispose();
@@ -110,7 +92,7 @@ class _NeonTextFieldState extends State<NeonTextField> {
               boxShadow: [
                 BoxShadow(
                   blurRadius: widget.blurRadius,
-                  color: Colors.black, // Inner shadow for contrast
+                  color: Colors.black,
                   offset: const Offset(0, 0),
                 ),
               ],

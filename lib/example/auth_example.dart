@@ -4,6 +4,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:simple_neon/simple_neon.dart';
+import 'package:simple_neon/src/neonCard.dart';
+
+import '../src/neonText.dart';
+import '../src/neonTextButton.dart';
+import '../src/neonTextField.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({super.key});

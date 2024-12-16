@@ -1,3 +1,5 @@
 ## 1.0.0
 
-* TODO: Describe initial release.
+Initial Release.
+## 2.0.0
+Added far more widgets.

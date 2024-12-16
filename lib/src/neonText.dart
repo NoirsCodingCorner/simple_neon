@@ -1,41 +1,16 @@
 import 'package:flutter/material.dart';
 
-/// A neon-styled text widget with optional animation and hover effects.
-///
-/// The `NeonText` widget provides a glowing text effect that can be customized
-/// with size, color, weight, and animation. It also includes hover effects for web/desktop platforms.
 class NeonText extends StatefulWidget {
-  /// The text to display.
   final String text;
-
-  /// The font size of the text. Default is 15.0.
   final double fontSize;
-
-  /// Custom text style to override defaults. Default is null.
   final TextStyle? textStyle;
-
-  /// The color of the neon glow. Default is `Colors.cyanAccent`.
   final Color neonColor;
-
-  /// The intensity of the outer glow. Default is 20.0.
   final double glowRadius;
-
-  /// The intensity of the inner blur effect. Default is 10.0.
   final double blurRadius;
-
-  /// The font weight of the text. Default is `FontWeight.bold`.
   final FontWeight fontWeight;
-
-  /// The text alignment. Default is `TextAlign.center`.
   final TextAlign textAlign;
+  final bool animate; // Whether to animate the glow
 
-  /// Whether to animate the glow effect. Default is `false`.
-  final bool animate;
-
-  /// Creates a `NeonText` widget.
-  ///
-  /// The widget features a glowing text with optional animation and hover effects.
-  /// [text] is required. Other parameters are optional and have defaults.
   const NeonText({
     super.key,
     required this.text,
@@ -62,7 +37,6 @@ class _NeonTextState extends State<NeonText>
   @override
   void initState() {
     super.initState();
-    // Initialize animation controller if animation is enabled.
     if (widget.animate) {
       _animationController = AnimationController(
         vsync: this,
@@ -80,14 +54,12 @@ class _NeonTextState extends State<NeonText>
 
   @override
   void dispose() {
-    // Dispose the animation controller if it exists.
     if (widget.animate) {
       _animationController.dispose();
     }
     super.dispose();
   }
 
-  /// Handles hover state for web/desktop platforms.
   void _onHover(bool hovering) {
     setState(() {
       _isHovered = hovering;
@@ -96,7 +68,6 @@ class _NeonTextState extends State<NeonText>
 
   @override
   Widget build(BuildContext context) {
-    // Define the base text style with shadows for the neon effect.
     TextStyle baseStyle = widget.textStyle ??
         TextStyle(
           fontSize: widget.fontSize,
@@ -126,14 +97,12 @@ class _NeonTextState extends State<NeonText>
           ],
         );
 
-    // Create the text widget.
     Widget textWidget = Text(
       widget.text,
       textAlign: widget.textAlign,
       style: baseStyle,
     );
 
-    // Wrap the text with animation if enabled.
     if (widget.animate) {
       textWidget = AnimatedBuilder(
         animation: _animationController,
@@ -147,7 +116,7 @@ class _NeonTextState extends State<NeonText>
       );
     }
 
-    // Wrap with MouseRegion for hover detection on web/desktop.
+    // Wrap with MouseRegion for hover detection
     return MouseRegion(
       onEnter: (_) => _onHover(true),
       onExit: (_) => _onHover(false),
