@@ -2,7 +2,9 @@
 
 A **Flutter package** featuring a collection of neon-styled widgets and a dynamic starry background, designed to create futuristic and visually striking user interfaces.
 
-![Screenshot_2024-12-12_221711](https://github.com/user-attachments/assets/4de30107-2ea6-4921-b1b7-ddf4d3b488d9)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/4de30107-2ea6-4921-b1b7-ddf4d3b488d9" alt="Screenshot">
+</p>
 
 ---
 
